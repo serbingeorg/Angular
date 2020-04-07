@@ -11,6 +11,12 @@ export class CarsComponent {
   carName = '';
   addCarStatus = false;
   cars = ['Ford', 'Audi', 'BMW', 'Mazda', 'Lada', 'Bently'];
+  dates = [
+    new Date(2015, 3, 4).toDateString(),
+    new Date(2011, 2, 5).toDateString(),
+    new Date(2017, 4, 6).toDateString(),
+    new Date(2000, 1, 7).toDateString(),
+  ];
   constructor() {
   }
 
@@ -19,8 +25,6 @@ export class CarsComponent {
     this.cars.push(this.carName);
     this.carName = '';
   }
-  setBigCarText(car: string) {
-    return car.length > 4 ? true : false;
-  }
+
 
 }
