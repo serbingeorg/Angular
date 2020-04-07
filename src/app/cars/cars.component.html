@@ -1,8 +1,18 @@
-<input type="text" class="form-control" [(ngModul)]="carName">
-<button class="btn btn-primary" (click)="addCar()">Add car</button>
-<p>{{addCarStatus}}</p>
+<input type="text" class="form-control" [(ngModel)]="carName">
 
+<button class="btn btn-primary" (click)="addCar()">Add car</button>
+<hr>
+<p *ngIf="!addCarStatus; else successStatus">Car not added!</p>
+<ng-template #successStatus>
+    <p>Car added!</p>
+</ng-template>
 
 <hr>
-<app-car></app-car>
-<app-car></app-car>
+
+<app-car *ngFor="let car of cars"></app-car>
+
+<ul>
+    <li *ngFor="let item of items; let idx = index">
+        <b>{{idx + 1}}</b> - <i>{{item.name}}</i>
+    </li>
+</ul>
