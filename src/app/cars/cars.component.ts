@@ -5,7 +5,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   selector: 'app-cars',
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css'],
-  encapsulation: ViewEncapsulation.None
+  /* encapsulation: ViewEncapsulation.None */
 })
 export class CarsComponent {
 
