@@ -1,4 +1,6 @@
+import { ConsoleService } from './../console.service';
 import { Component, Input } from '@angular/core';
+
 
 
 @Component({
@@ -6,10 +8,14 @@ import { Component, Input } from '@angular/core';
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css'],
 
+  providers: [ConsoleService]
+
 })
 export class CarComponent {
 
   @Input() car;
+
+  constructor(private consoleService: ConsoleService) { }
 
 
   getClass() {
@@ -22,6 +28,8 @@ export class CarComponent {
 
   onAction(type: string) {
     this.car.isSold = type === 'buy' ? true : false;
+    this.consoleService.log(`${this.car.name} status = ${type}`);
   }
+
 
 }
