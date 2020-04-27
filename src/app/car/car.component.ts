@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css'],
 
-  providers: [ConsoleService]
+
 
 })
 export class CarComponent {

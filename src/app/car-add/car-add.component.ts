@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { CarsService } from './../cars.service';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-car-add',
@@ -6,12 +8,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./car-add.component.css']
 })
 export class CarAddComponent {
-  // tslint:disable-next-line:no-output-on-prefix
-  @Output() onCarAdd = new EventEmitter<string>();
+
   carName = '';
 
+  constructor(private servive: CarsService) { }
+
   addCar() {
-    this.onCarAdd.emit(this.carName);
+    this.servive.addCar(this.carName);
     this.carName = '';
   }
 
