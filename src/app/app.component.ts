@@ -5,11 +5,11 @@ import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.html'
 })
 
 export class AppComponent {
-
+  @ViewChild('form') form: NgForm;
 
 
   answers = [{
@@ -20,7 +20,25 @@ export class AppComponent {
     text: 'Нет'
   }];
 
+  defaultAnswer = 'no';
+  defaultCountry = 'ua';
+
+  formData = {};
+  isSubmited = false;
+
+
+
+  addRandEmail() {
+    const randEmail = 'serbin@gmail.com';
+
+    this.form.form.patchValue({
+      user: { email: randEmail }
+    });
+  }
+
   submitForm(form: NgForm) {
-    console.log('Submited!', form);
+    this.isSubmited = true;
+    this.formData = this.form.value;
+    this.form.reset();
   }
 }
