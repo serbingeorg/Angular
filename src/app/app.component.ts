@@ -1,6 +1,7 @@
 
-import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 
 @Component({
@@ -8,8 +9,8 @@ import { NgForm } from '@angular/forms';
   templateUrl: './app.component.html'
 })
 
-export class AppComponent {
-  @ViewChild('form') form: NgForm;
+export class AppComponent implements OnInit {
+
 
 
   answers = [{
@@ -20,25 +21,18 @@ export class AppComponent {
     text: 'Нет'
   }];
 
-  defaultAnswer = 'no';
-  defaultCountry = 'ua';
+  form: FormGroup;
 
-  formData = {};
-  isSubmited = false;
-
-
-
-  addRandEmail() {
-    const randEmail = 'serbin@gmail.com';
-
-    this.form.form.patchValue({
-      user: { email: randEmail }
+  ngOnInit() {
+    this.form = new FormGroup({
+      email: new FormControl(''),
+      pass: new FormControl(''),
+      country: new FormControl('ru'),
+      answer: new FormControl('no')
     });
   }
-
-  submitForm(form: NgForm) {
-    this.isSubmited = true;
-    this.formData = this.form.value;
-    this.form.reset();
+  onSubmit() {
+    console.log('Submoted!', this.form);
   }
+
 }
