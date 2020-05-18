@@ -14,4 +14,14 @@ export class CarsService {
         return this.http.get('http://localhost:3000/cars')
             .pipe(map(res => res));
     }
+
+
+    addCar(carName: string) {
+        const data = {
+            name: carName,
+            color: 'blue'
+        };
+        return this.http.post('http://localhost:3000/cars', data)
+            .pipe(map(res => res));
+    }
 }

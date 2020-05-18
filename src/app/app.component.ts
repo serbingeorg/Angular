@@ -3,6 +3,7 @@ import { CarsService } from './cars.service';
 
 
 
+
 interface Cars {
   name: string;
   color: string;
@@ -15,6 +16,7 @@ interface Cars {
 })
 export class AppComponent {
   cars: Cars[] = [];
+  carName = '';
 
 
   constructor(private carsServise: CarsService) { }
@@ -25,4 +27,13 @@ export class AppComponent {
         this.cars = cars;
       });
   }
+
+  addCar() {
+    this.carsServise.addCar(this.carName)
+      .subscribe((car: Cars) => {
+        this.cars.push(car);
+      });
+    this.carName = '';
+  }
+
 }
