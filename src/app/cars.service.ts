@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 // tslint:disable-next-line:quotemark
 import { map } from "rxjs/operators";
 
@@ -11,7 +11,11 @@ export class CarsService {
     constructor(private http: HttpClient) { }
 
     getCars() {
-        return this.http.get('http://localhost:3000/cars')
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json; charset=utf8'
+        });
+        // tslint:disable-next-line:object-literal-shorthand
+        return this.http.get('http://localhost:3000/cars', { headers: headers })
             .pipe(map(res => res));
     }
 
