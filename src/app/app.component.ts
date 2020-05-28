@@ -34,7 +34,8 @@ export class AppComponent {
     this.carsServise.getCars()
       .subscribe((cars: Cars[]) => {
         this.cars = cars;
-      });
+      },
+        (error) => { alert(error); });
   }
 
   addCar() {

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // tslint:disable-next-line:quotemark
-import { map } from "rxjs/operators";
+import { map, catchError } from "rxjs/operators";
+
+import { Observable, throwError } from 'rxjs';
 
 
 
@@ -15,8 +17,13 @@ export class CarsService {
             'Content-Type': 'application/json; charset=utf8'
         });
         // tslint:disable-next-line:object-literal-shorthand
-        return this.http.get('http://localhost:3000/cars', { headers: headers })
-            .pipe(map(res => res));
+        return this.http.get('http://localhost:3100/cars', { headers: headers })
+            .pipe(map(res => res))
+            .pipe(catchError(this.handleError));
+    }
+    // tslint:disable-next-line:ban-types
+    handleError() {
+        return throwError('Server dont work');
     }
 
 
