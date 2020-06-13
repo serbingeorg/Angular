@@ -5,11 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CarsService } from './cars.service';
+import { CarsPageComponent } from './cars-page/cars-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    CarsPageComponent,
+    HomePageComponent,
 
   ],
   imports: [
