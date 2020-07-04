@@ -9,6 +9,7 @@ import { CarsPageComponent } from './cars-page/cars-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CarPageComponent } from './car-page/car-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -19,6 +20,7 @@ import { CarPageComponent } from './car-page/car-page.component';
     CarsPageComponent,
     HomePageComponent,
     CarPageComponent,
+    NotFoundComponent,
 
   ],
   imports: [
