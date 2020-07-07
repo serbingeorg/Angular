@@ -1,31 +1,25 @@
-import { AuthService } from './auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { CarsService } from './cars.service';
-import { CarsPageComponent } from './cars-page/cars-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { CarsPageComponent } from './cars-page/cars-page.component';
+import { CarsService } from './cars.service';
 import { AppRoutingModule } from './app-routing.module';
-import { CarPageComponent } from './car-page/car-page.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { AuthGuard } from './auth-guard.service';
-import { NewPageComponent } from './new-page/new-page.component';
-
-
-
+import { ColorDirective } from './shared/color.directive';
+import { HeaderComponent } from './header/header.component';
+import { CarPageComponent } from './cars-page/car-page/car-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarsPageComponent,
     HomePageComponent,
+    CarsPageComponent,
     CarPageComponent,
-    NotFoundComponent,
-    NewPageComponent,
-
+    ColorDirective,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +27,8 @@ import { NewPageComponent } from './new-page/new-page.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [CarsService, AuthService, AuthGuard],
+  providers: [CarsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
