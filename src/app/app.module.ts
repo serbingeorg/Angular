@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
-import { CarsModule } from './cars-page/cars.module';
+
 
 
 
@@ -22,7 +22,6 @@ import { CarsModule } from './cars-page/cars.module';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    CarsModule,
     SharedModule
   ],
   providers: [],

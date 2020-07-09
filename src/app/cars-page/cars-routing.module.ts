@@ -5,7 +5,7 @@ import { CarPageComponent } from './car-page/car-page.component';
 
 const carsRoutes: Routes = [
     {
-        path: 'cars', component: CarsPageComponent, children: [
+        path: '', component: CarsPageComponent, children: [
             { path: ':id/:name', component: CarPageComponent }
         ]
     },
